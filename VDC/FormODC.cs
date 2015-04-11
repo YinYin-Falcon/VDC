@@ -237,6 +237,106 @@ namespace VDC
                             dragtype = "bdy" + l.ToString();
                             break;
                         }
+                        else if (global.objectfile.frames[global.framenumber].bdys[l] != null
+                            && MouseIsNearBy(new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].bdys[l].x) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].bdys[l].y) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeNWSE;
+                            dragtype = "bNW" + l.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].bdys[l] != null
+                            && MouseIsNearBy(new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].bdys[l].x - global.objectfile.frames[global.framenumber].bdys[l].w) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].bdys[l].y - global.objectfile.frames[global.framenumber].bdys[l].h) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeNWSE;
+                            dragtype = "bSE" + l.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].bdys[l] != null
+                            && MouseIsNearBy(new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].bdys[l].x - global.objectfile.frames[global.framenumber].bdys[l].w) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].bdys[l].y) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeNESW;
+                            dragtype = "bNE" + l.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].bdys[l] != null
+                            && MouseIsNearBy(new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].bdys[l].x) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].bdys[l].y - global.objectfile.frames[global.framenumber].bdys[l].h) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeNESW;
+                            dragtype = "bSW" + l.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].bdys[l] != null
+                            && MouseIsNearBy(                            
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].bdys[l].x - global.objectfile.frames[global.framenumber].bdys[l].w) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].bdys[l].y) * zoom + offsety)),                           
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].bdys[l].x - global.objectfile.frames[global.framenumber].bdys[l].w) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].bdys[l].y - global.objectfile.frames[global.framenumber].bdys[l].h) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeWE;
+                            dragtype = "bEE" + l.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].bdys[l] != null
+                            && MouseIsNearBy(
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].bdys[l].x) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].bdys[l].y) * zoom + offsety)),
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].bdys[l].x) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].bdys[l].y - global.objectfile.frames[global.framenumber].bdys[l].h) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeWE;
+                            dragtype = "bWW" + l.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].bdys[l] != null
+                            && MouseIsNearBy(
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].bdys[l].x) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].bdys[l].y - global.objectfile.frames[global.framenumber].bdys[l].h) * zoom + offsety)),
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].bdys[l].x - global.objectfile.frames[global.framenumber].bdys[l].w) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].bdys[l].y - global.objectfile.frames[global.framenumber].bdys[l].h) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeNS;
+                            dragtype = "bSS" + l.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].bdys[l] != null
+                            && MouseIsNearBy(
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].bdys[l].x) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].bdys[l].y) * zoom + offsety)),
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].bdys[l].x - global.objectfile.frames[global.framenumber].bdys[l].w) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].bdys[l].y) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeNS;
+                            dragtype = "bNN" + l.ToString();
+                            break;
+                        }
                     }
                     for (int m = 0; m <= global.objectfile.frames[global.framenumber].itrs.Count - 1; m++)
                     {
@@ -246,6 +346,106 @@ namespace VDC
                         {
                             this.Cursor = Cursors.SizeAll;
                             dragtype = "itr" + m.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].itrs[m] != null
+                            && MouseIsNearBy(new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].itrs[m].x) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].itrs[m].y) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeNWSE;
+                            dragtype = "iNW" + m.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].itrs[m] != null
+                            && MouseIsNearBy(new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].itrs[m].x - global.objectfile.frames[global.framenumber].itrs[m].w) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].itrs[m].y - global.objectfile.frames[global.framenumber].itrs[m].h) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeNWSE;
+                            dragtype = "iSE" + m.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].itrs[m] != null
+                            && MouseIsNearBy(new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].itrs[m].x - global.objectfile.frames[global.framenumber].itrs[m].w) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].itrs[m].y) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeNESW;
+                            dragtype = "iNE" + m.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].itrs[m] != null
+                            && MouseIsNearBy(new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].itrs[m].x) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].itrs[m].y - global.objectfile.frames[global.framenumber].itrs[m].h) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeNESW;
+                            dragtype = "iSW" + m.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].itrs[m] != null
+                            && MouseIsNearBy(
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].itrs[m].x - global.objectfile.frames[global.framenumber].itrs[m].w) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].itrs[m].y) * zoom + offsety)),
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].itrs[m].x - global.objectfile.frames[global.framenumber].itrs[m].w) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].itrs[m].y - global.objectfile.frames[global.framenumber].itrs[m].h) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeWE;
+                            dragtype = "iEE" + m.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].itrs[m] != null
+                            && MouseIsNearBy(
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].itrs[m].x) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].itrs[m].y) * zoom + offsety)),
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].itrs[m].x) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].itrs[m].y - global.objectfile.frames[global.framenumber].itrs[m].h) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeWE;
+                            dragtype = "iWW" + m.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].itrs[m] != null
+                            && MouseIsNearBy(
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].itrs[m].x) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].itrs[m].y - global.objectfile.frames[global.framenumber].itrs[m].h) * zoom + offsety)),
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].itrs[m].x - global.objectfile.frames[global.framenumber].itrs[m].w) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].itrs[m].y - global.objectfile.frames[global.framenumber].itrs[m].h) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeNS;
+                            dragtype = "iSS" + m.ToString();
+                            break;
+                        }
+                        else if (global.objectfile.frames[global.framenumber].itrs[m] != null
+                            && MouseIsNearBy(
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].itrs[m].x) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].itrs[m].y) * zoom + offsety)),
+                            new Point((int)((this.ClientSize.Width / 2)
+                                - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].itrs[m].x - global.objectfile.frames[global.framenumber].itrs[m].w) * zoom + offsetx),
+                            (int)((this.ClientSize.Height / 2)
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].itrs[m].y) * zoom + offsety))))
+                        {
+                            this.Cursor = Cursors.SizeNS;
+                            dragtype = "iNN" + m.ToString();
                             break;
                         }
                     }
@@ -376,26 +576,62 @@ namespace VDC
                 }
                 else if (dragtype.StartsWith("itr"))
                 {
-                    for (int m = 0; m <= global.objectfile.frames[global.framenumber].itrs.Count - 1; m++)
+                    int m = int.Parse(dragtype.Remove(0, 3));
+                    oldStartPoint = new Point(global.retentiveframe.itrs[m].x * zoom, global.retentiveframe.itrs[m].y * zoom);
+                    oldEndPoint = new Point(global.retentiveframe.itrs[m].x * zoom, global.retentiveframe.itrs[m].y * zoom);
+                }
+                else if (dragtype.StartsWith("i"))
+                {
+                    int m = int.Parse(dragtype.Remove(0, 3));
+                    if (dragtype.Contains("NW"))
                     {
-                        if (dragtype.EndsWith(m.ToString()))
-                        {
-                            oldStartPoint = new Point(global.retentiveframe.itrs[m].x * zoom, global.retentiveframe.itrs[m].y * zoom);
-                            oldEndPoint = new Point(global.retentiveframe.itrs[m].x * zoom, global.retentiveframe.itrs[m].y * zoom);
-                            break;
-                        }
+                        oldStartPoint = new Point(global.retentiveframe.itrs[m].x * zoom, global.retentiveframe.itrs[m].y * zoom);
+                        oldEndPoint = new Point(global.retentiveframe.itrs[m].x * zoom, global.retentiveframe.itrs[m].y * zoom);
+                    }
+                    else if (dragtype.Contains("N"))
+                    {
+                        oldStartPoint = new Point(global.retentiveframe.itrs[m].w * zoom, global.retentiveframe.itrs[m].y * zoom);
+                        oldEndPoint = new Point(global.retentiveframe.itrs[m].w * zoom, global.retentiveframe.itrs[m].y * zoom);
+                    }
+                    else if (dragtype.Contains("W"))
+                    {
+                        oldStartPoint = new Point(global.retentiveframe.itrs[m].x * zoom, global.retentiveframe.itrs[m].h * zoom);
+                        oldEndPoint = new Point(global.retentiveframe.itrs[m].x * zoom, global.retentiveframe.itrs[m].h * zoom);
+                    }
+                    else
+                    {
+                        oldStartPoint = new Point(global.retentiveframe.itrs[m].w * zoom, global.retentiveframe.itrs[m].h * zoom);
+                        oldEndPoint = new Point(global.retentiveframe.itrs[m].w * zoom, global.retentiveframe.itrs[m].h * zoom);
                     }
                 }
                 else if (dragtype.StartsWith("bdy"))
                 {
-                    for (int l = 0; l <= global.objectfile.frames[global.framenumber].bdys.Count - 1; l++)
+                    int l = int.Parse(dragtype.Remove(0, 3));
+                    oldStartPoint = new Point(global.retentiveframe.bdys[l].x * zoom, global.retentiveframe.bdys[l].y * zoom);
+                    oldEndPoint = new Point(global.retentiveframe.bdys[l].x * zoom, global.retentiveframe.bdys[l].y * zoom);
+                }
+                else if (dragtype.StartsWith("b"))
+                {
+                    int l = int.Parse(dragtype.Remove(0, 3));
+                    if (dragtype.Contains("NW"))
                     {
-                        if (dragtype.EndsWith(l.ToString()))
-                        {
-                            oldStartPoint = new Point(global.retentiveframe.bdys[l].x * zoom, global.retentiveframe.bdys[l].y * zoom);
-                            oldEndPoint = new Point(global.retentiveframe.bdys[l].x * zoom, global.retentiveframe.bdys[l].y * zoom);
-                            break;
-                        }
+                        oldStartPoint = new Point(global.retentiveframe.bdys[l].x * zoom, global.retentiveframe.bdys[l].y * zoom);
+                        oldEndPoint = new Point(global.retentiveframe.bdys[l].x * zoom, global.retentiveframe.bdys[l].y * zoom);
+                    }
+                    else if (dragtype.Contains("N"))
+                    {
+                        oldStartPoint = new Point(global.retentiveframe.bdys[l].w * zoom, global.retentiveframe.bdys[l].y * zoom);
+                        oldEndPoint = new Point(global.retentiveframe.bdys[l].w * zoom, global.retentiveframe.bdys[l].y * zoom);
+                    }
+                    else if (dragtype.Contains("W"))
+                    {
+                        oldStartPoint = new Point(global.retentiveframe.bdys[l].x * zoom, global.retentiveframe.bdys[l].h * zoom);
+                        oldEndPoint = new Point(global.retentiveframe.bdys[l].x * zoom, global.retentiveframe.bdys[l].h * zoom);
+                    }
+                    else
+                    {
+                        oldStartPoint = new Point(global.retentiveframe.bdys[l].w * zoom, global.retentiveframe.bdys[l].h * zoom);
+                        oldEndPoint = new Point(global.retentiveframe.bdys[l].w * zoom, global.retentiveframe.bdys[l].h * zoom);
                     }
                 }
                 dragStartPoint = MouseIsNearBy(oldStartPoint);
@@ -455,6 +691,32 @@ namespace VDC
             return p;
         }
 
+        private Rectangle resize(Point e, Rectangle p)
+        {
+            if (dragtype.Contains("E")) p.Width = (oldStartPoint.X + e.X - oldMouseX) / zoom;
+            else if (dragtype.Contains("W"))
+            {
+                p.Width = p.Width - (e.X - oldMouseX) / zoom;
+                p.X = (oldStartPoint.X + e.X - oldMouseX) / zoom;
+            }
+            if (dragtype.Contains("S")) p.Height = (oldStartPoint.Y + e.Y - oldMouseY) / zoom;
+            else if (dragtype.Contains("N"))
+            {
+                p.Height = p.Height - (e.Y - oldMouseY) / zoom;
+                p.Y = (oldStartPoint.Y + e.Y - oldMouseY) / zoom;
+            }
+            if (p.Width < 1) p.Width = 1;
+            if (p.Height < 1) p.Height = 1;
+
+            TipText = string.Format("w: {0} h: {1}", p.Width, p.Height);
+            TrackTip.Show(TipText, this, new Point(e.X, e.Y));
+            TrackTip.AutoPopDelay = 500;
+            TrackTip.InitialDelay = 100;
+            TrackTip.ReshowDelay = 50;
+            this.Refresh();
+            return p;
+        }
+
         private void FormODC_MouseMove(object sender, MouseEventArgs e)
         {
             if ((dragStartPoint || dragEndPoint) && (ctrl || dragtype != ""))
@@ -501,33 +763,41 @@ namespace VDC
                 }
                 else if (dragtype.StartsWith("itr"))
                 {
-                    for (int m = 0; m <= global.objectfile.frames[global.framenumber].itrs.Count - 1; m++)
-                    {
-                        if (dragtype.EndsWith(m.ToString()))
-                        {
-                            Point p = movepoint(new Point(e.X, e.Y),
-                                new Point(global.retentiveframe.itrs[m].x, global.retentiveframe.itrs[m].y),
-                                new Point(global.objectfile.frames[global.framenumber].itrs[m].x, global.objectfile.frames[global.framenumber].itrs[m].y));
-                            global.objectfile.frames[global.framenumber].itrs[m].x = p.X;
-                            global.objectfile.frames[global.framenumber].itrs[m].y = p.Y;
-                            break;
-                        }
-                    }
+                    int m = int.Parse(dragtype.Remove(0, 3));
+                    Point p = movepoint(new Point(e.X, e.Y),
+                        new Point(global.retentiveframe.itrs[m].x, global.retentiveframe.itrs[m].y),
+                        new Point(global.objectfile.frames[global.framenumber].itrs[m].x, global.objectfile.frames[global.framenumber].itrs[m].y));
+                    global.objectfile.frames[global.framenumber].itrs[m].x = p.X;
+                    global.objectfile.frames[global.framenumber].itrs[m].y = p.Y;
+                }
+                else if (dragtype.StartsWith("i"))
+                {
+                    int m = int.Parse(dragtype.Remove(0, 3));
+                    Rectangle p = resize(new Point(e.X, e.Y),
+                        new Rectangle(global.retentiveframe.itrs[m].x, global.retentiveframe.itrs[m].y, global.retentiveframe.itrs[m].w, global.retentiveframe.itrs[m].h));
+                    global.objectfile.frames[global.framenumber].itrs[m].x = p.X;
+                    global.objectfile.frames[global.framenumber].itrs[m].y = p.Y;
+                    global.objectfile.frames[global.framenumber].itrs[m].w = p.Width;
+                    global.objectfile.frames[global.framenumber].itrs[m].h = p.Height;
                 }
                 else if (dragtype.StartsWith("bdy"))
                 {
-                    for (int l = 0; l <= global.objectfile.frames[global.framenumber].bdys.Count - 1; l++)
-                    {
-                        if (dragtype.EndsWith(l.ToString()))
-                        {
-                            Point p = movepoint(new Point(e.X, e.Y),
-                                new Point(global.retentiveframe.bdys[l].x, global.retentiveframe.bdys[l].y),
-                                new Point(global.objectfile.frames[global.framenumber].bdys[l].x, global.objectfile.frames[global.framenumber].bdys[l].y));
-                            global.objectfile.frames[global.framenumber].bdys[l].x = p.X;
-                            global.objectfile.frames[global.framenumber].bdys[l].y = p.Y;
-                            break;
-                        }
-                    }
+                    int l = int.Parse(dragtype.Remove(0, 3));
+                    Point p = movepoint(new Point(e.X, e.Y),
+                        new Point(global.retentiveframe.bdys[l].x, global.retentiveframe.bdys[l].y),
+                        new Point(global.objectfile.frames[global.framenumber].bdys[l].x, global.objectfile.frames[global.framenumber].bdys[l].y));
+                    global.objectfile.frames[global.framenumber].bdys[l].x = p.X;
+                    global.objectfile.frames[global.framenumber].bdys[l].y = p.Y;
+                }
+                else if (dragtype.StartsWith("b"))
+                {
+                    int l = int.Parse(dragtype.Remove(0, 3));
+                    Rectangle p = resize(new Point(e.X, e.Y),
+                        new Rectangle(global.retentiveframe.bdys[l].x, global.retentiveframe.bdys[l].y, global.retentiveframe.bdys[l].w, global.retentiveframe.bdys[l].h));
+                    global.objectfile.frames[global.framenumber].bdys[l].x = p.X;
+                    global.objectfile.frames[global.framenumber].bdys[l].y = p.Y;
+                    global.objectfile.frames[global.framenumber].bdys[l].w = p.Width;
+                    global.objectfile.frames[global.framenumber].bdys[l].h = p.Height;
                 }
             }
             else
@@ -546,6 +816,17 @@ namespace VDC
         {
             testPoint = this.PointToScreen(testPoint);
             return Math.Abs(testPoint.X - MousePosition.X) <= HitTestDelta && Math.Abs(testPoint.Y - MousePosition.Y) <= HitTestDelta;
+        }
+
+        private bool MouseIsNearBy(Point testPoint1, Point testPoint2)
+        {
+            testPoint1 = this.PointToScreen(testPoint1);
+            testPoint2 = this.PointToScreen(testPoint2);            
+            if (testPoint1.X == testPoint2.X)
+                return Math.Abs(testPoint1.X - MousePosition.X) <= HitTestDelta && testPoint1.Y <= MousePosition.Y && testPoint2.Y >= MousePosition.Y;
+            else if (testPoint1.Y == testPoint2.Y)
+                return Math.Abs(testPoint1.Y - MousePosition.Y) <= HitTestDelta && testPoint1.X <= MousePosition.X && testPoint2.X >= MousePosition.X;
+            return false;
         }
 
         private void FormODC_MouseUp(object sender, MouseEventArgs e)
@@ -614,16 +895,19 @@ namespace VDC
                     replacement = replacement.Replace(" w: " + global.retentiveframe.itrs[m].w.ToString(), " w: " + global.objectfile.frames[global.framenumber].itrs[m].w.ToString());
                 if (m > -1 && currenttag == "itr" && vdc.fctb.Lines[i].Contains(" h: ")
                     && global.retentiveframe.itrs[m].h != global.objectfile.frames[global.framenumber].itrs[m].h)
-                    replacement = replacement.Replace(" h: " + global.retentiveframe.itrs[m].h.ToString(), " h: " + global.objectfile.frames[global.framenumber].itrs[m].h.ToString());
-
-                
+                    replacement = replacement.Replace(" h: " + global.retentiveframe.itrs[m].h.ToString(), " h: " + global.objectfile.frames[global.framenumber].itrs[m].h.ToString());                
                 if (l > -1 && currenttag == "bdy" && vdc.fctb.Lines[i].Contains(" x: ")
                     && global.retentiveframe.bdys[l].x != global.objectfile.frames[global.framenumber].bdys[l].x)
                     replacement = replacement.Replace(" x: " + global.retentiveframe.bdys[l].x.ToString(), " x: " + global.objectfile.frames[global.framenumber].bdys[l].x.ToString());
                 if (l > -1 && currenttag == "bdy" && vdc.fctb.Lines[i].Contains(" y: ")
                     && global.retentiveframe.bdys[l].y != global.objectfile.frames[global.framenumber].bdys[l].y)
                     replacement = replacement.Replace(" y: " + global.retentiveframe.bdys[l].y.ToString(), " y: " + global.objectfile.frames[global.framenumber].bdys[l].y.ToString());
-                
+                if (l > -1 && currenttag == "bdy" && vdc.fctb.Lines[i].Contains(" w: ")
+                    && global.retentiveframe.bdys[l].w != global.objectfile.frames[global.framenumber].bdys[l].w)
+                    replacement = replacement.Replace(" w: " + global.retentiveframe.bdys[l].w.ToString(), " w: " + global.objectfile.frames[global.framenumber].bdys[l].w.ToString());
+                if (l > -1 && currenttag == "bdy" && vdc.fctb.Lines[i].Contains(" h: ")
+                    && global.retentiveframe.bdys[l].h != global.objectfile.frames[global.framenumber].bdys[l].h)
+                    replacement = replacement.Replace(" h: " + global.retentiveframe.bdys[l].h.ToString(), " h: " + global.objectfile.frames[global.framenumber].bdys[l].h.ToString());                
                 if (replacement != vdc.fctb.GetLineText(i))
                 {
                     vdc.fctb.Navigate(i);
