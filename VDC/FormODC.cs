@@ -603,13 +603,19 @@ namespace VDC
                 if (currenttag == "cpoint" && vdc.fctb.Lines[i].Contains(" y: ")
                     && global.retentiveframe.cpoint.y != global.objectfile.frames[global.framenumber].cpoint.y)
                     replacement = replacement.Replace(" y: " + global.retentiveframe.cpoint.y.ToString(), " y: " + global.objectfile.frames[global.framenumber].cpoint.y.ToString());
-                
                 if (m > -1 && currenttag == "itr" && vdc.fctb.Lines[i].Contains(" x: ")
                     && global.retentiveframe.itrs[m].x != global.objectfile.frames[global.framenumber].itrs[m].x)
                     replacement = replacement.Replace(" x: " + global.retentiveframe.itrs[m].x.ToString(), " x: " + global.objectfile.frames[global.framenumber].itrs[m].x.ToString());
                 if (m > -1 && currenttag == "itr" && vdc.fctb.Lines[i].Contains(" y: ")
                     && global.retentiveframe.itrs[m].y != global.objectfile.frames[global.framenumber].itrs[m].y)
                     replacement = replacement.Replace(" y: " + global.retentiveframe.itrs[m].y.ToString(), " y: " + global.objectfile.frames[global.framenumber].itrs[m].y.ToString());
+                if (m > -1 && currenttag == "itr" && vdc.fctb.Lines[i].Contains(" w: ")
+                    && global.retentiveframe.itrs[m].w != global.objectfile.frames[global.framenumber].itrs[m].w)
+                    replacement = replacement.Replace(" w: " + global.retentiveframe.itrs[m].w.ToString(), " w: " + global.objectfile.frames[global.framenumber].itrs[m].w.ToString());
+                if (m > -1 && currenttag == "itr" && vdc.fctb.Lines[i].Contains(" h: ")
+                    && global.retentiveframe.itrs[m].h != global.objectfile.frames[global.framenumber].itrs[m].h)
+                    replacement = replacement.Replace(" h: " + global.retentiveframe.itrs[m].h.ToString(), " h: " + global.objectfile.frames[global.framenumber].itrs[m].h.ToString());
+
                 
                 if (l > -1 && currenttag == "bdy" && vdc.fctb.Lines[i].Contains(" x: ")
                     && global.retentiveframe.bdys[l].x != global.objectfile.frames[global.framenumber].bdys[l].x)
