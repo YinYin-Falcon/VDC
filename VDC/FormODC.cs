@@ -105,9 +105,12 @@ namespace VDC
                     if(File.Exists(vdc.lf2root + global.objectfile.bmp_begin.bmps[k].path)) load = new Bitmap(vdc.lf2root + global.objectfile.bmp_begin.bmps[k].path);
                     else break;
                     load.MakeTransparent(Color.Black);
-                    Bitmap crop = load.Clone(new Rectangle(((global.objectfile.frames[global.framenumber].pic - count) % global.objectfile.bmp_begin.bmps[k].row) * (global.objectfile.bmp_begin.bmps[k].w + 1), ((global.objectfile.frames[global.framenumber].pic - count) / global.objectfile.bmp_begin.bmps[k].row) * (global.objectfile.bmp_begin.bmps[k].h + 1), global.objectfile.bmp_begin.bmps[k].w, global.objectfile.bmp_begin.bmps[k].h), System.Drawing.Imaging.PixelFormat.DontCare);
-                    e.Graphics.DrawImage(crop, new Rectangle((this.ClientSize.Width / 2) - global.objectfile.frames[global.framenumber].centerx * zoom + offsetx, (this.ClientSize.Height / 2) - global.objectfile.frames[global.framenumber].centery * zoom + offsety, global.objectfile.bmp_begin.bmps[k].w * zoom, global.objectfile.bmp_begin.bmps[k].h * zoom));
-
+                    try
+                    {
+                        Bitmap crop = load.Clone(new Rectangle(((global.objectfile.frames[global.framenumber].pic - count) % global.objectfile.bmp_begin.bmps[k].row) * (global.objectfile.bmp_begin.bmps[k].w + 1), ((global.objectfile.frames[global.framenumber].pic - count) / global.objectfile.bmp_begin.bmps[k].row) * (global.objectfile.bmp_begin.bmps[k].h + 1), global.objectfile.bmp_begin.bmps[k].w, global.objectfile.bmp_begin.bmps[k].h), System.Drawing.Imaging.PixelFormat.DontCare);
+                        e.Graphics.DrawImage(crop, new Rectangle((this.ClientSize.Width / 2) - global.objectfile.frames[global.framenumber].centerx * zoom + offsetx, (this.ClientSize.Height / 2) - global.objectfile.frames[global.framenumber].centery * zoom + offsety, global.objectfile.bmp_begin.bmps[k].w * zoom, global.objectfile.bmp_begin.bmps[k].h * zoom));
+                    }
+                    catch { }
                     /*e.Graphics.DrawRectangle(Pens.White, new Rectangle((this.ClientSize.Width / 2) - global.objectfile.frames[global.framenumber].centerx * zoom + offsetx, (this.ClientSize.Height / 2) - global.objectfile.frames[global.framenumber].centery * zoom + offsety,global.objectfile.bmp_begin.bmps[k].w * zoom,global.objectfile.bmp_begin.bmps[k].h * zoom));
                         using (Pen pn = new Pen(Color.Black) { DashStyle = System.Drawing.Drawing2D.DashStyle.Custom, DashPattern = { 4f, 4f }, DashOffset = dashOffset })
                         {
