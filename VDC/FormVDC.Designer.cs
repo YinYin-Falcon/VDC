@@ -47,6 +47,8 @@
             this.replaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.formatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.foldAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.allToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +70,6 @@
             this.fd = new System.Windows.Forms.FontDialog();
             this.ifd = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.fctb = new FastColoredTextBoxNS.FastColoredTextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.undoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,9 +80,10 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.fctb = new FastColoredTextBoxNS.FastColoredTextBox();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fctb)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fctb)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -180,7 +182,9 @@
             this.findToolStripMenuItem,
             this.replaceToolStripMenuItem,
             this.toolStripSeparator5,
-            this.formatToolStripMenuItem});
+            this.formatToolStripMenuItem,
+            this.toolStripSeparator9,
+            this.settingsToolStripMenuItem});
             this.eDITToolStripMenuItem.Name = "eDITToolStripMenuItem";
             this.eDITToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
             this.eDITToolStripMenuItem.Size = new System.Drawing.Size(39, 19);
@@ -240,6 +244,20 @@
             this.formatToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.formatToolStripMenuItem.Text = "Format";
             this.formatToolStripMenuItem.Click += new System.EventHandler(this.formatToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(153, 6);
+            this.toolStripSeparator9.Visible = false;
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Visible = false;
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
             // 
@@ -399,67 +417,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // fctb
-            // 
-            this.fctb.AllowMacroRecording = false;
-            this.fctb.AutoCompleteBrackets = true;
-            this.fctb.AutoCompleteBracketsList = new char[] {
-        '<',
-        '>',
-        '\0',
-        '\0',
-        '\0',
-        '\0',
-        '\0',
-        '\0',
-        '\0',
-        '\0'};
-            this.fctb.AutoIndentCharsPatterns = "^\\s*\\S+\\s+(?<range>\\S+)\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<r" +
-    "ange>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*";
-            this.fctb.AutoScrollMinSize = new System.Drawing.Size(0, 14);
-            this.fctb.BackBrush = null;
-            this.fctb.BackColor = System.Drawing.SystemColors.Window;
-            this.fctb.BookmarkColor = System.Drawing.Color.Orange;
-            this.fctb.ChangedLineColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.fctb.CharHeight = 14;
-            this.fctb.CharWidth = 8;
-            this.fctb.CommentPrefix = "#";
-            this.fctb.ContextMenuStrip = this.contextMenuStrip1;
-            this.fctb.CurrentLineColor = System.Drawing.Color.Gainsboro;
-            this.fctb.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.fctb.DisabledColor = System.Drawing.SystemColors.Control;
-            this.fctb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fctb.FoldingIndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(226)))), ((int)(((byte)(108)))));
-            this.fctb.Font = new System.Drawing.Font("Courier New", 9.75F);
-            this.fctb.HighlightingRangeType = FastColoredTextBoxNS.HighlightingRangeType.VisibleRange;
-            this.fctb.Hotkeys = resources.GetString("fctb.Hotkeys");
-            this.fctb.IndentBackColor = System.Drawing.SystemColors.Control;
-            this.fctb.IsReplaceMode = false;
-            this.fctb.LineNumberColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.fctb.Location = new System.Drawing.Point(0, 19);
-            this.fctb.Margin = new System.Windows.Forms.Padding(0);
-            this.fctb.Name = "fctb";
-            this.fctb.Paddings = new System.Windows.Forms.Padding(0);
-            this.fctb.ReservedCountOfLineNumberChars = 4;
-            this.fctb.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
-            this.fctb.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fctb.ServiceColors")));
-            this.fctb.ServiceLinesColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(165)))), ((int)(((byte)(165)))));
-            this.fctb.ShowFoldingLines = true;
-            this.fctb.Size = new System.Drawing.Size(1424, 799);
-            this.fctb.TabIndex = 0;
-            this.fctb.TabLength = 3;
-            this.fctb.TextAreaBorderColor = System.Drawing.Color.Transparent;
-            this.fctb.WordWrap = true;
-            this.fctb.WordWrapIndent = 1;
-            this.fctb.Zoom = 100;
-            this.fctb.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fctb_TextChanged_1);
-            this.fctb.SelectionChanged += new System.EventHandler(this.fctb_SelectionChanged_1);
-            this.fctb.SelectionChangedDelayed += new System.EventHandler(this.fctb_SelectionChangedDelayed);
-            this.fctb.DragDrop += new System.Windows.Forms.DragEventHandler(this.fctb_DragDrop);
-            this.fctb.DragEnter += new System.Windows.Forms.DragEventHandler(this.fctb_DragEnter);
-            this.fctb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.fctb_MouseDown);
-            this.fctb.MouseMove += new System.Windows.Forms.MouseEventHandler(this.fctb_MouseMove);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -538,23 +495,87 @@
             this.timer1.Interval = 400;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // fctb
+            // 
+            this.fctb.AllowMacroRecording = false;
+            this.fctb.AutoCompleteBrackets = true;
+            this.fctb.AutoCompleteBracketsList = new char[] {
+        '<',
+        '>',
+        '\0',
+        '\0',
+        '\0',
+        '\0',
+        '\0',
+        '\0',
+        '\0',
+        '\0'};
+            this.fctb.AutoIndentCharsPatterns = "^\\s*\\S+\\s+(?<range>\\S+)\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<r" +
+    "ange>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*";
+            this.fctb.AutoScrollMinSize = new System.Drawing.Size(0, 14);
+            this.fctb.BackBrush = null;
+            this.fctb.BackColor = System.Drawing.SystemColors.Window;
+            this.fctb.BookmarkColor = System.Drawing.Color.Orange;
+            this.fctb.ChangedLineColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.fctb.CharHeight = 14;
+            this.fctb.CharWidth = 8;
+            this.fctb.CommentPrefix = "#";
+            this.fctb.ContextMenuStrip = this.contextMenuStrip1;
+            this.fctb.CurrentLineColor = System.Drawing.Color.Gainsboro;
+            this.fctb.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.fctb.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::VDC.Properties.Settings.Default, "font", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.fctb.DisabledColor = System.Drawing.SystemColors.Control;
+            this.fctb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fctb.FoldingIndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(226)))), ((int)(((byte)(108)))));
+            this.fctb.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.fctb.HighlightingRangeType = FastColoredTextBoxNS.HighlightingRangeType.VisibleRange;
+            this.fctb.Hotkeys = resources.GetString("fctb.Hotkeys");
+            this.fctb.IndentBackColor = System.Drawing.SystemColors.Control;
+            this.fctb.IsReplaceMode = false;
+            this.fctb.LineNumberColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.fctb.Location = new System.Drawing.Point(0, 19);
+            this.fctb.Margin = new System.Windows.Forms.Padding(0);
+            this.fctb.Name = "fctb";
+            this.fctb.Paddings = new System.Windows.Forms.Padding(0);
+            this.fctb.ReservedCountOfLineNumberChars = 4;
+            this.fctb.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(51)))), ((int)(((byte)(153)))), ((int)(((byte)(255)))));
+            this.fctb.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fctb.ServiceColors")));
+            this.fctb.ServiceLinesColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(165)))), ((int)(((byte)(165)))));
+            this.fctb.ShowFoldingLines = true;
+            this.fctb.Size = new System.Drawing.Size(1424, 799);
+            this.fctb.TabIndex = 0;
+            this.fctb.TabLength = 3;
+            this.fctb.TextAreaBorderColor = System.Drawing.Color.Transparent;
+            this.fctb.WordWrap = true;
+            this.fctb.WordWrapIndent = 1;
+            this.fctb.Zoom = 100;
+            this.fctb.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fctb_TextChanged_1);
+            this.fctb.SelectionChanged += new System.EventHandler(this.fctb_SelectionChanged_1);
+            this.fctb.SelectionChangedDelayed += new System.EventHandler(this.fctb_SelectionChangedDelayed);
+            this.fctb.DragDrop += new System.Windows.Forms.DragEventHandler(this.fctb_DragDrop);
+            this.fctb.DragEnter += new System.Windows.Forms.DragEventHandler(this.fctb_DragEnter);
+            this.fctb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.fctb_MouseDown);
+            this.fctb.MouseMove += new System.Windows.Forms.MouseEventHandler(this.fctb_MouseMove);
+            // 
             // FormVDC
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1424, 818);
             this.Controls.Add(this.fctb);
             this.Controls.Add(this.menuStrip1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormVDC";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormVDC_FormClosing);
             this.Load += new System.EventHandler(this.FormVDC_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fctb)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fctb)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -611,5 +632,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
     }
 }

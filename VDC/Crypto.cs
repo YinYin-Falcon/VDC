@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 
 namespace VDC
-{
+{    
     //Programmed by Someone else
 
     public class DecryptFile

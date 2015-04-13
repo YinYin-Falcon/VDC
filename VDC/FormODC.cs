@@ -102,7 +102,7 @@ namespace VDC
                     && global.objectfile.frames[global.framenumber].pic < count + global.objectfile.bmp_begin.bmps[k].row * global.objectfile.bmp_begin.bmps[k].col)
                 {
                     Bitmap load;
-                    if(File.Exists(vdc.lf2root + global.objectfile.bmp_begin.bmps[k].path)) load = new Bitmap(vdc.lf2root + global.objectfile.bmp_begin.bmps[k].path);
+                    if (File.Exists(vdc.lf2root + global.objectfile.bmp_begin.bmps[k].path)) load = new Bitmap(vdc.lf2root + global.objectfile.bmp_begin.bmps[k].path);
                     else break;
                     load.MakeTransparent(Color.Black);
                     try
@@ -281,11 +281,11 @@ namespace VDC
                             break;
                         }
                         else if (global.objectfile.frames[global.framenumber].bdys[l] != null
-                            && MouseIsNearBy(                            
+                            && MouseIsNearBy(
                             new Point((int)((this.ClientSize.Width / 2)
                                 - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].bdys[l].x - global.objectfile.frames[global.framenumber].bdys[l].w) * zoom + offsetx),
                             (int)((this.ClientSize.Height / 2)
-                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].bdys[l].y) * zoom + offsety)),                           
+                            - (global.objectfile.frames[global.framenumber].centery - global.objectfile.frames[global.framenumber].bdys[l].y) * zoom + offsety)),
                             new Point((int)((this.ClientSize.Width / 2)
                                 - (global.objectfile.frames[global.framenumber].centerx - global.objectfile.frames[global.framenumber].bdys[l].x - global.objectfile.frames[global.framenumber].bdys[l].w) * zoom + offsetx),
                             (int)((this.ClientSize.Height / 2)
@@ -500,7 +500,7 @@ namespace VDC
                         nextFrame();
                     break;
                 case Keys.Space:
-                    if (!ctrl)
+                    if (!ctrl && dragtype == "")
                     {
                         space = true;
                         this.Cursor = Cursors.NoMove2D;
@@ -521,14 +521,14 @@ namespace VDC
 
         private void FormODC_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Space && space)
+            if (e.KeyCode == Keys.Space && space && dragtype == "")
             {
                 space = false;
                 dragStartPoint = false;
                 dragEndPoint = false;
                 this.Cursor = Cursors.Default;
             }
-            else if (e.KeyCode == Keys.ControlKey && ctrl)
+            else if (e.KeyCode == Keys.ControlKey && ctrl && dragtype == "")
             {
                 ctrl = false;
                 dragStartPoint = false;
@@ -539,8 +539,8 @@ namespace VDC
             else if (e.KeyCode == Keys.ShiftKey && shift)
             {
                 shift = false;
-                if (!ctrl) this.Cursor = Cursors.Default;
-                else this.Cursor = Cursors.SizeAll;
+                if (!ctrl && dragtype == "") this.Cursor = Cursors.Default;
+                else if (dragtype == "") this.Cursor = Cursors.SizeAll;
             }
         }
 
@@ -696,19 +696,21 @@ namespace VDC
 
         private Rectangle resize(Point e, Rectangle r, Rectangle p)
         {
-            if (dragtype.Contains("E")) p.Width = (oldStartPoint.X + e.X - oldMouseX) / zoom;
+            int dx = (e.X - oldMouseX) / zoom;
+            int dy = (e.Y - oldMouseY) / zoom;
+            if (dragtype.Contains("E")) p.Width = r.Width + dx;
             else if (dragtype.Contains("W"))
             {
-                int add = (e.X - oldMouseX) / zoom;
-                p.Width = r.Width - add;
-                p.X = oldStartPoint.X / zoom + add;
+                p.Width = r.Width - dx;
+                if (p.Width > 1) p.X = oldStartPoint.X / zoom + dx;
+                else p.X = oldStartPoint.X / zoom + r.Width - 1;
             }
-            if (dragtype.Contains("S")) p.Height = (oldStartPoint.Y + e.Y - oldMouseY) / zoom;
+            if (dragtype.Contains("S")) p.Height = r.Height + dy;
             else if (dragtype.Contains("N"))
             {
-                int add = (e.Y - oldMouseY) / zoom;
-                p.Height = r.Height - add;
-                p.Y = oldStartPoint.Y / zoom + add;
+                p.Height = r.Height - dy;
+                if (p.Height > 1) p.Y = oldStartPoint.Y / zoom + dy;
+                else p.Y = oldStartPoint.Y / zoom + r.Height - 1;
             }
             if (p.Width < 1) p.Width = 1;
             if (p.Height < 1) p.Height = 1;
@@ -828,7 +830,7 @@ namespace VDC
         private bool MouseIsNearBy(Point testPoint1, Point testPoint2)
         {
             testPoint1 = this.PointToScreen(testPoint1);
-            testPoint2 = this.PointToScreen(testPoint2);            
+            testPoint2 = this.PointToScreen(testPoint2);
             if (testPoint1.X == testPoint2.X)
                 return Math.Abs(testPoint1.X - MousePosition.X) <= HitTestDelta && testPoint1.Y <= MousePosition.Y && testPoint2.Y >= MousePosition.Y;
             else if (testPoint1.Y == testPoint2.Y)
@@ -902,7 +904,7 @@ namespace VDC
                     replacement = replacement.Replace(" w: " + global.retentiveframe.itrs[m].w.ToString(), " w: " + global.objectfile.frames[global.framenumber].itrs[m].w.ToString());
                 if (m > -1 && currenttag == "itr" && vdc.fctb.Lines[i].Contains(" h: ")
                     && global.retentiveframe.itrs[m].h != global.objectfile.frames[global.framenumber].itrs[m].h)
-                    replacement = replacement.Replace(" h: " + global.retentiveframe.itrs[m].h.ToString(), " h: " + global.objectfile.frames[global.framenumber].itrs[m].h.ToString());                
+                    replacement = replacement.Replace(" h: " + global.retentiveframe.itrs[m].h.ToString(), " h: " + global.objectfile.frames[global.framenumber].itrs[m].h.ToString());
                 if (l > -1 && currenttag == "bdy" && vdc.fctb.Lines[i].Contains(" x: ")
                     && global.retentiveframe.bdys[l].x != global.objectfile.frames[global.framenumber].bdys[l].x)
                     replacement = replacement.Replace(" x: " + global.retentiveframe.bdys[l].x.ToString(), " x: " + global.objectfile.frames[global.framenumber].bdys[l].x.ToString());
@@ -914,7 +916,7 @@ namespace VDC
                     replacement = replacement.Replace(" w: " + global.retentiveframe.bdys[l].w.ToString(), " w: " + global.objectfile.frames[global.framenumber].bdys[l].w.ToString());
                 if (l > -1 && currenttag == "bdy" && vdc.fctb.Lines[i].Contains(" h: ")
                     && global.retentiveframe.bdys[l].h != global.objectfile.frames[global.framenumber].bdys[l].h)
-                    replacement = replacement.Replace(" h: " + global.retentiveframe.bdys[l].h.ToString(), " h: " + global.objectfile.frames[global.framenumber].bdys[l].h.ToString());                
+                    replacement = replacement.Replace(" h: " + global.retentiveframe.bdys[l].h.ToString(), " h: " + global.objectfile.frames[global.framenumber].bdys[l].h.ToString());
                 if (replacement != vdc.fctb.GetLineText(i))
                 {
                     vdc.fctb.Navigate(i);
@@ -1020,6 +1022,6 @@ namespace VDC
                 vdc.fctb.Navigate(i);
             }
         }
-                    
+
     }
 }

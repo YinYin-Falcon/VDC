@@ -25,6 +25,8 @@ namespace VDC
         public FormODC odc;
         //about
         public FormAbout about;
+        //settings
+        public FormSettings fs;
 
         //Create style for highlighting
         TextStyle blueStyle = new TextStyle(new SolidBrush(Color.FromArgb(unchecked((int)0xff0000A0))), null, FontStyle.Regular);
@@ -115,11 +117,18 @@ namespace VDC
 
         private bool save()
         {
-            if (filepath == "untitled" || filepath.EndsWith(".dat"))
-                return saveAs();
-            StreamWriter sw = new StreamWriter(filepath);
-            sw.Write(fctb.Text);
-            sw.Close();
+            if (filepath == "untitled" || (filepath.EndsWith(".dat") && !Properties.Settings.Default.datenabled))
+                return saveAs();            
+            if (filepath.EndsWith(".dat") && Properties.Settings.Default.datenabled)
+            {
+                //encrypt
+            }
+            else
+            {
+                StreamWriter sw = new StreamWriter(filepath);
+                sw.Write(fctb.Text);
+                sw.Close();
+            }
             this.Text = Path.GetFileName(filepath);
             fctb.IsChanged = false;
             fctb.Invalidate();
@@ -537,6 +546,19 @@ namespace VDC
             undoToolStripMenuItem.Enabled = undoToolStripMenuItem1.Enabled = fctb.UndoEnabled;
             redoToolStripMenuItem.Enabled = redoToolStripMenuItem1.Enabled = fctb.RedoEnabled;
             cutToolStripMenuItem.Enabled = copyToolStripMenuItem.Enabled = !fctb.Selection.IsEmpty;
+        }
+
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fs == null)
+            {
+                fs = new FormSettings();
+                fs.Owner = this;
+                fs.vdc = this;
+                fs.Show();
+            }
+            else
+                fs.Focus();
         }
 
     }
