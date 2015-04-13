@@ -694,19 +694,21 @@ namespace VDC
             return p;
         }
 
-        private Rectangle resize(Point e, Rectangle p)
+        private Rectangle resize(Point e, Rectangle r, Rectangle p)
         {
             if (dragtype.Contains("E")) p.Width = (oldStartPoint.X + e.X - oldMouseX) / zoom;
             else if (dragtype.Contains("W"))
             {
-                p.Width = p.Width - (e.X - oldMouseX) / zoom;
-                p.X = (oldStartPoint.X + e.X - oldMouseX) / zoom;
+                int add = (e.X - oldMouseX) / zoom;
+                p.Width = r.Width - add;
+                p.X = oldStartPoint.X / zoom + add;
             }
             if (dragtype.Contains("S")) p.Height = (oldStartPoint.Y + e.Y - oldMouseY) / zoom;
             else if (dragtype.Contains("N"))
             {
-                p.Height = p.Height - (e.Y - oldMouseY) / zoom;
-                p.Y = (oldStartPoint.Y + e.Y - oldMouseY) / zoom;
+                int add = (e.Y - oldMouseY) / zoom;
+                p.Height = r.Height - add;
+                p.Y = oldStartPoint.Y / zoom + add;
             }
             if (p.Width < 1) p.Width = 1;
             if (p.Height < 1) p.Height = 1;
@@ -777,7 +779,8 @@ namespace VDC
                 {
                     int m = int.Parse(dragtype.Remove(0, 3));
                     Rectangle p = resize(new Point(e.X, e.Y),
-                        new Rectangle(global.retentiveframe.itrs[m].x, global.retentiveframe.itrs[m].y, global.retentiveframe.itrs[m].w, global.retentiveframe.itrs[m].h));
+                        new Rectangle(global.retentiveframe.itrs[m].x, global.retentiveframe.itrs[m].y, global.retentiveframe.itrs[m].w, global.retentiveframe.itrs[m].h),
+                        new Rectangle(global.objectfile.frames[global.framenumber].itrs[m].x, global.objectfile.frames[global.framenumber].itrs[m].y, global.objectfile.frames[global.framenumber].itrs[m].w, global.objectfile.frames[global.framenumber].itrs[m].h));
                     global.objectfile.frames[global.framenumber].itrs[m].x = p.X;
                     global.objectfile.frames[global.framenumber].itrs[m].y = p.Y;
                     global.objectfile.frames[global.framenumber].itrs[m].w = p.Width;
@@ -796,7 +799,8 @@ namespace VDC
                 {
                     int l = int.Parse(dragtype.Remove(0, 3));
                     Rectangle p = resize(new Point(e.X, e.Y),
-                        new Rectangle(global.retentiveframe.bdys[l].x, global.retentiveframe.bdys[l].y, global.retentiveframe.bdys[l].w, global.retentiveframe.bdys[l].h));
+                        new Rectangle(global.retentiveframe.bdys[l].x, global.retentiveframe.bdys[l].y, global.retentiveframe.bdys[l].w, global.retentiveframe.bdys[l].h),
+                        new Rectangle(global.objectfile.frames[global.framenumber].bdys[l].x, global.objectfile.frames[global.framenumber].bdys[l].y, global.objectfile.frames[global.framenumber].bdys[l].w, global.objectfile.frames[global.framenumber].bdys[l].h));
                     global.objectfile.frames[global.framenumber].bdys[l].x = p.X;
                     global.objectfile.frames[global.framenumber].bdys[l].y = p.Y;
                     global.objectfile.frames[global.framenumber].bdys[l].w = p.Width;
