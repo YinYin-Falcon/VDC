@@ -101,10 +101,22 @@ namespace VDC
                 if (count <= global.objectfile.frames[global.framenumber].pic
                     && global.objectfile.frames[global.framenumber].pic < count + global.objectfile.bmp_begin.bmps[k].row * global.objectfile.bmp_begin.bmps[k].col)
                 {
-                    Bitmap load;
+                    Bitmap load = null;
                     if (File.Exists(vdc.lf2root + global.objectfile.bmp_begin.bmps[k].path)) load = new Bitmap(vdc.lf2root + global.objectfile.bmp_begin.bmps[k].path);
-                    else break;
-                    load.MakeTransparent(Color.Black);
+                    else if (vdc.lf2root.Contains("\\\\"))
+                    {
+                        e.Graphics.FillRectangle(Brushes.Red, new Rectangle(0, 24, this.ClientSize.Width, 4 * DefaultFont.Height));
+                        e.Graphics.DrawString("could not find an lf2.exe in a parent folder of this file\r\n\r\nmake sure this file has an lf2.exe in a parent folder", DefaultFont, Brushes.Black,
+                            new Point(DefaultFont.Height / 2, 24 + DefaultFont.Height / 2));
+                    }
+                    else
+                    {
+                        e.Graphics.FillRectangle(Brushes.Orange, new Rectangle(0, 24, this.ClientSize.Width, 5 * DefaultFont.Height));
+                        e.Graphics.DrawString("could not find\r\n" + vdc.lf2root + global.objectfile.bmp_begin.bmps[k].path
+                            + "\r\n\r\nmake sure your bmp_begin is correct and the bitmap exists", DefaultFont, Brushes.Black,
+                            new Point(DefaultFont.Height / 2, 24 + DefaultFont.Height / 2));
+                    }
+                    if (load != null) load.MakeTransparent(Color.Black);
                     try
                     {
                         Bitmap crop = load.Clone(new Rectangle(((global.objectfile.frames[global.framenumber].pic - count) % global.objectfile.bmp_begin.bmps[k].row) * (global.objectfile.bmp_begin.bmps[k].w + 1), ((global.objectfile.frames[global.framenumber].pic - count) / global.objectfile.bmp_begin.bmps[k].row) * (global.objectfile.bmp_begin.bmps[k].h + 1), global.objectfile.bmp_begin.bmps[k].w, global.objectfile.bmp_begin.bmps[k].h), System.Drawing.Imaging.PixelFormat.DontCare);
@@ -982,13 +994,21 @@ namespace VDC
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (vdc.fctb.UndoEnabled)
+            {
                 vdc.fctb.Undo();
+                vdc.fctb.Undo();
+                vdc.fctb.Undo();
+            }
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (vdc.fctb.RedoEnabled)
+            {
                 vdc.fctb.Redo();
+                vdc.fctb.Redo();
+                vdc.fctb.Redo();
+            }
         }
 
         private void previousFrameToolStripMenuItem_Click(object sender, EventArgs e)

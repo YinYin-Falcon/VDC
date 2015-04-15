@@ -98,6 +98,7 @@ namespace VDC
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            ofd.FileName = "";
             if (checksavestatus())
                 if (ofd.ShowDialog() == DialogResult.OK)
                     open(ofd.FileName);
@@ -117,12 +118,10 @@ namespace VDC
 
         private bool save()
         {
-            if (filepath == "untitled" || (filepath.EndsWith(".dat") && !Properties.Settings.Default.datenabled))
+            if (filepath == "untitled")
                 return saveAs();            
-            if (filepath.EndsWith(".dat") && Properties.Settings.Default.datenabled)
-            {
-                //encrypt
-            }
+            if (filepath.EndsWith(".dat"))
+                EncryptText.Main(filepath, fctb.Text);
             else
             {
                 StreamWriter sw = new StreamWriter(filepath);
@@ -146,9 +145,14 @@ namespace VDC
             if (svd.ShowDialog() == DialogResult.OK)
             {
                 filepath = svd.FileName;
-                StreamWriter sw = new StreamWriter(filepath);
-                sw.Write(fctb.Text);
-                sw.Close();
+                if (filepath.EndsWith(".dat"))
+                    EncryptText.Main(filepath, fctb.Text);
+                else
+                {
+                    StreamWriter sw = new StreamWriter(filepath);
+                    sw.Write(fctb.Text);
+                    sw.Close();
+                }
                 this.Text = Path.GetFileName(filepath);
                 fctb.IsChanged = false;
                 fctb.Invalidate();

@@ -69,7 +69,6 @@
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.fd = new System.Windows.Forms.FontDialog();
             this.ifd = new System.Windows.Forms.OpenFileDialog();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.undoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.redoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -128,11 +127,13 @@
             // 
             // importToolStripMenuItem
             // 
+            this.importToolStripMenuItem.Enabled = false;
             this.importToolStripMenuItem.Image = global::VDC.Properties.Resources.import;
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
             this.importToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
             this.importToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.importToolStripMenuItem.Text = "&Import";
+            this.importToolStripMenuItem.Visible = false;
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
@@ -249,14 +250,13 @@
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
             this.toolStripSeparator9.Size = new System.Drawing.Size(153, 6);
-            this.toolStripSeparator9.Visible = false;
             // 
             // settingsToolStripMenuItem
             // 
+            this.settingsToolStripMenuItem.Image = global::VDC.Properties.Resources.settings;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Visible = false;
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
             // viewToolStripMenuItem
@@ -399,23 +399,18 @@
             // 
             // svd
             // 
-            this.svd.DefaultExt = "txt";
-            this.svd.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            this.svd.Filter = "Text files (*.txt)|*.txt|Data files (*.dat)|*.dat|All files (*.*)|*.*";
             // 
             // ofd
             // 
-            this.ofd.DefaultExt = "txt";
-            this.ofd.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            this.ofd.DefaultExt = "LF2 files";
+            this.ofd.Filter = "LF2 files (*.dat;*txt)|*.dat;*.txt|All files (*.*)|*.*";
             // 
             // ifd
             // 
             this.ifd.DefaultExt = "dat";
             this.ifd.Filter = "Data files (*.dat)|*.dat|All files (*.*)|*.*";
             this.ifd.Title = "Import";
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // contextMenuStrip1
             // 
@@ -527,7 +522,6 @@
             this.fctb.DisabledColor = System.Drawing.SystemColors.Control;
             this.fctb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fctb.FoldingIndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(226)))), ((int)(((byte)(108)))));
-            this.fctb.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fctb.HighlightingRangeType = FastColoredTextBoxNS.HighlightingRangeType.VisibleRange;
             this.fctb.Hotkeys = resources.GetString("fctb.Hotkeys");
             this.fctb.IndentBackColor = System.Drawing.SystemColors.Control;
@@ -600,7 +594,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog ifd;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem findToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem replaceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;

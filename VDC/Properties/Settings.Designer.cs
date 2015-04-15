@@ -37,13 +37,14 @@ namespace VDC.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool datenabled {
+        [global::System.Configuration.DefaultSettingValueAttribute("This data file was created with the Visual Data Changer, download for free at htt" +
+            "p://y2f.heliohost.org")]
+        public string datfilesignature {
             get {
-                return ((bool)(this["datenabled"]));
+                return ((string)(this["datfilesignature"]));
             }
             set {
-                this["datenabled"] = value;
+                this["datfilesignature"] = value;
             }
         }
     }
