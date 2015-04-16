@@ -34,6 +34,7 @@
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -41,7 +42,7 @@
             this.textBox1.BackColor = System.Drawing.SystemColors.Window;
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(49, 12);
+            this.textBox1.Location = new System.Drawing.Point(46, 8);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 20);
@@ -51,7 +52,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(9, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 1;
@@ -59,7 +60,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(155, 10);
+            this.button1.Location = new System.Drawing.Point(152, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -75,7 +76,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 35);
+            this.label2.Location = new System.Drawing.Point(9, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 13);
             this.label2.TabIndex = 4;
@@ -84,14 +85,27 @@
             // textBox2
             // 
             this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::VDC.Properties.Settings.Default, "datfilesignature", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.textBox2.Location = new System.Drawing.Point(12, 51);
+            this.textBox2.Location = new System.Drawing.Point(12, 70);
             this.textBox2.MaxLength = 123;
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(218, 60);
+            this.textBox2.Size = new System.Drawing.Size(215, 60);
             this.textBox2.TabIndex = 5;
             this.textBox2.Text = global::VDC.Properties.Settings.Default.datfilesignature;
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = global::VDC.Properties.Settings.Default.autoindent;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::VDC.Properties.Settings.Default, "autoindent", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.checkBox1.Location = new System.Drawing.Point(12, 34);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(131, 17);
+            this.checkBox1.TabIndex = 6;
+            this.checkBox1.Text = "auto indent everything";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // FormSettings
             // 
@@ -100,6 +114,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(528, 405);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
@@ -125,6 +140,7 @@
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
 
     }
 }

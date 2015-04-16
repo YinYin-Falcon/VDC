@@ -47,5 +47,17 @@ namespace VDC.Properties {
                 this["datfilesignature"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool autoindent {
+            get {
+                return ((bool)(this["autoindent"]));
+            }
+            set {
+                this["autoindent"] = value;
+            }
+        }
     }
 }

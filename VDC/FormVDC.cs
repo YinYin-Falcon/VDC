@@ -89,6 +89,11 @@ namespace VDC
             //global.objectfile.bmp_begin = DataParser.getHeader(Regex.Split(fctb.Text, @"\s").OfType<string>().ToList());
             global.objectfile.bmp_begin = DataParser.getHeader(Regex.Split(Regex.Split(fctb.Text, @"bmp_end")[0], @"\s").OfType<string>().ToList());
 
+            setroot(args);
+        }
+
+        private void setroot(string args)
+        {
             lf2root = Path.GetDirectoryName(args) + "\\";
             bool DirectoryFound = false;
             do
@@ -457,7 +462,11 @@ namespace VDC
             }
             else if (rangetype != "")
             {
-                if (rangetype == "<bmp_end>")  global.objectfile.bmp_begin = DataParser.getHeader(Regex.Split(text, @"\s").OfType<string>().ToList());
+                if (rangetype == "<bmp_end>")
+                {
+                    global.objectfile.bmp_begin = DataParser.getHeader(Regex.Split(text, @"\s").OfType<string>().ToList());
+                    if (lf2root == "\\\\") setroot(filepath);
+                }
                 if (odc != null)
                 {
                     global.framenumber = -1;

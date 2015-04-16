@@ -8,5 +8,8 @@
     <Setting Name="datfilesignature" Type="System.String" Scope="User">
       <Value Profile="(Default)">This data file was created with the Visual Data Changer, download for free at http://y2f.heliohost.org</Value>
     </Setting>
+    <Setting Name="autoindent" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

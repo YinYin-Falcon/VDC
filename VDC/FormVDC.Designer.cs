@@ -505,8 +505,10 @@
         '\0',
         '\0',
         '\0'};
+            this.fctb.AutoIndentChars = global::VDC.Properties.Settings.Default.autoindent;
             this.fctb.AutoIndentCharsPatterns = "^\\s*\\S+\\s+(?<range>\\S+)\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<r" +
     "ange>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*";
+            this.fctb.AutoIndentExistingLines = global::VDC.Properties.Settings.Default.autoindent;
             this.fctb.AutoScrollMinSize = new System.Drawing.Size(0, 14);
             this.fctb.BackBrush = null;
             this.fctb.BackColor = System.Drawing.SystemColors.Window;
@@ -519,9 +521,12 @@
             this.fctb.CurrentLineColor = System.Drawing.Color.Gainsboro;
             this.fctb.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fctb.DataBindings.Add(new System.Windows.Forms.Binding("Font", global::VDC.Properties.Settings.Default, "font", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.fctb.DataBindings.Add(new System.Windows.Forms.Binding("AutoIndentChars", global::VDC.Properties.Settings.Default, "autoindent", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.fctb.DataBindings.Add(new System.Windows.Forms.Binding("AutoIndentExistingLines", global::VDC.Properties.Settings.Default, "autoindent", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.fctb.DisabledColor = System.Drawing.SystemColors.Control;
             this.fctb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fctb.FoldingIndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(226)))), ((int)(((byte)(108)))));
+            this.fctb.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fctb.HighlightingRangeType = FastColoredTextBoxNS.HighlightingRangeType.VisibleRange;
             this.fctb.Hotkeys = resources.GetString("fctb.Hotkeys");
             this.fctb.IndentBackColor = System.Drawing.SystemColors.Control;

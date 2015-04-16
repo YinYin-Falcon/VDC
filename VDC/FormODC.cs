@@ -40,7 +40,7 @@ namespace VDC
 
         public FormODC()
         {
-            if (global.objectfile.frames.Count > 0) offsety = (zoom - 1) * global.objectfile.frames[global.framenumber].centery / 2;
+            if (global.objectfile.frames.Count > global.framenumber && global.framenumber > -1) offsety = (zoom - 1) * global.objectfile.frames[global.framenumber].centery / 2;
             InitializeComponent();
             this.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.FormODC_MouseWheel);
         }
@@ -104,7 +104,7 @@ namespace VDC
                     else if (vdc.lf2root.Contains("\\\\"))
                     {
                         e.Graphics.FillRectangle(Brushes.Red, new Rectangle(0, 24, this.ClientSize.Width, 4 * DefaultFont.Height));
-                        e.Graphics.DrawString("could not find a root folder containing all bitmaps\r\n\r\nmake sure your bmp_begin is correct, the bitmaps exists and reload this file", DefaultFont, Brushes.Black,
+                        e.Graphics.DrawString("could not find a root folder containing all bitmaps\r\n\r\nmake sure your bmp_begin is correct and the bitmaps exist", DefaultFont, Brushes.Black,
                             new Point(DefaultFont.Height / 2, 24 + DefaultFont.Height / 2));
                     }
                     else if(k < global.objectfile.bmp_begin.bmps.Count)
