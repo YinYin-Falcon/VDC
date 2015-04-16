@@ -89,11 +89,31 @@ namespace VDC
             //global.objectfile.bmp_begin = DataParser.getHeader(Regex.Split(fctb.Text, @"\s").OfType<string>().ToList());
             global.objectfile.bmp_begin = DataParser.getHeader(Regex.Split(Regex.Split(fctb.Text, @"bmp_end")[0], @"\s").OfType<string>().ToList());
 
-            //get lf2.exe path
-            lf2root = Path.GetDirectoryName(args) + "\\lf2.exe";
-            while (!File.Exists(lf2root) && lf2root.Length > 10)
-                lf2root = lf2root.Substring(0, lf2root.Length - new DirectoryInfo(Path.GetDirectoryName(lf2root)).Name.Length - Path.GetFileName(lf2root).Length - 2) + "\\lf2.exe";
-            lf2root = Path.GetDirectoryName(lf2root) + "\\";
+            lf2root = Path.GetDirectoryName(args) + "\\";
+            bool DirectoryFound = false;
+            do
+            {
+                DirectoryFound = true;
+                for (int i = 0; i < global.objectfile.bmp_begin.bmps.Count; i++)
+                {
+                    if (!File.Exists(lf2root + global.objectfile.bmp_begin.bmps[i].path))
+                    {
+                        DirectoryFound = false;
+                        break;
+                    }
+                }
+            } while (!DirectoryFound && UpOneDirectory(ref lf2root));
+            if (!DirectoryFound) lf2root = "\\\\";
+        }
+
+        private bool UpOneDirectory(ref string lf2root)
+        {
+            if (lf2root.Length > 4)
+            {
+                lf2root = lf2root.Substring(0, lf2root.Length - new DirectoryInfo(Path.GetDirectoryName(lf2root + "\\")).Name.Length);
+                return true;
+            }
+            return false;
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
