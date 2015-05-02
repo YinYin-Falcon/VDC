@@ -506,8 +506,7 @@
         '\0',
         '\0'};
             this.fctb.AutoIndentChars = global::VDC.Properties.Settings.Default.autoindent;
-            this.fctb.AutoIndentCharsPatterns = "^\\s*\\S+\\s+(?<range>\\S+)\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<r" +
-    "ange>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*\\s*(?<range>\\S+)*";
+            this.fctb.AutoIndentCharsPatterns = resources.GetString("fctb.AutoIndentCharsPatterns");
             this.fctb.AutoIndentExistingLines = global::VDC.Properties.Settings.Default.autoindent;
             this.fctb.AutoScrollMinSize = new System.Drawing.Size(0, 14);
             this.fctb.BackBrush = null;
@@ -526,7 +525,6 @@
             this.fctb.DisabledColor = System.Drawing.SystemColors.Control;
             this.fctb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fctb.FoldingIndicatorColor = System.Drawing.Color.FromArgb(((int)(((byte)(108)))), ((int)(((byte)(226)))), ((int)(((byte)(108)))));
-            this.fctb.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fctb.HighlightingRangeType = FastColoredTextBoxNS.HighlightingRangeType.VisibleRange;
             this.fctb.Hotkeys = resources.GetString("fctb.Hotkeys");
             this.fctb.IndentBackColor = System.Drawing.SystemColors.Control;

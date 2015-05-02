@@ -32,7 +32,7 @@ namespace VDC
         TextStyle blueStyle = new TextStyle(new SolidBrush(Color.FromArgb(unchecked((int)0xff0000A0))), null, FontStyle.Regular);
         string brackets = "<bmp_begin>|<bmp_end>|<boss>|<background>|<background_end>|<end>|<frame>|<frame_end>|<file_editing>|<file_editing_end>|<object>|<object_end>|<phase>|<phase_end>|<stage>|<stage_end>|<soldier>|<weapon_strength_list>|<weapon_strength_list_end>";
         TextStyle redStyle = new TextStyle(new SolidBrush(Color.FromArgb(unchecked((int)0xff800000))), null, FontStyle.Regular);
-        string attributes = "attacking: |aaction: |action: |act: |arest: |backhurtact: |bdefend: |bound: |col: |centerx: |centery: |cover: |catchingact: |caughtact: |cc: |c1: |c2: |dash_height |dash_distance |dash_distancez |dvx: |dvy: |dvz: |decrease: |dircontrol: |effect: |entry: |file|fronthurtact: |fall: |facing: |file: |heavy_walking_speed |heavy_walking_speedz |heavy_running_speed |heavy_running_speedz |h: |head: |hit_a: |hit_d: |hit_j: |hit_Fa: |hit_Ua: |hit_Da: |hit_Fj: |hit_Uj: |hit_Dj: |hit_ja: |hurtable: |hp: |height: |id: |injury: |jaction: |jump_height |jump_distance |jump_distancez |join: |kind: |loop: |mp: |music: |name: |next: |oid: |pic: |running_frame_rate |running_speed |running_speedz |rowing_height |rowing_distance |row: |ratio: |rect: |reserve: |small: |state: |sound: |shadow: |shadowsize: |taction: |throwvx: |throwvy: |throwvz: |throwinjury: |times: |type: |transparency: |vaction: |vrest: |walking_frame_rate |walking_speed |walking_speedz |w: |wait: |weaponact: |weapon_hit_sound: |weapon_drop_sound: |weapon_broken_sound: |weapon_hp: |weapon_drop_hurt: |width: |when_clear_goto_phase: |x: |y: |zwidth: |zboundary: ";
+        string attributes = "attacking: |aaction: |action: |act: |arest: |backhurtact: |bdefend: |bound: |col: |centerx: |centery: |cover: |catchingact: |caughtact: |cc: |c1: |c2: |dash_height |dash_distance |dash_distancez |dvx: |dvy: |dvz: |decrease: |dircontrol: |effect: |entry: |file|fronthurtact: |fall: |facing: |file: |heavy_walking_speed |heavy_walking_speedz |heavy_running_speed |heavy_running_speedz |h: |head: |hit_a: |hit_d: |hit_j: |hit_Fa: |hit_Ua: |hit_Da: |hit_Fj: |hit_Uj: |hit_Dj: |hit_ja: |hurtable: |hp: |height: |id: |injury: |jaction: |jump_height |jump_distance |jump_distancez |join: |kind: |loop: |mp: |music: |name: |next: |oid: |pic: |running_frame_rate |running_speed |running_speedz |rowing_height |rowing_distance |row: |ratio: |rect: |reserve: |small: |state: |sound: |shadow: |shadowsize: |taction: |throwvx: |throwvy: |throwvz: |throwinjury: |times: |type: |transparency: |vaction: |vrest: |walking_frame_rate |walking_speed |walking_speedz |w: |wait: |weaponact: |weapon_hit_sound: |weapon_drop_sound: |weapon_broken_sound: |weapon_hp: |weapon_drop_hurt: |width: |when_clear_goto_phase: |x: | y: |zwidth: |zboundary: ";
         TextStyle greenStyle = new TextStyle(new SolidBrush(Color.FromArgb(unchecked((int)0xff008040))), null, FontStyle.Regular);
         string tags = "bpoint:|bpoint_end:|bdy:|bdy_end:|cpoint:|cpoint_end:|itr:|itr_end:|layer:|layer_end|opoint:|opoint_end:|wpoint:|wpoint_end:";
         MarkerStyle SameWordsStyle = new MarkerStyle(new SolidBrush(Color.FromArgb(40, Color.DarkGray)));
@@ -240,11 +240,17 @@ namespace VDC
 
         private void formatToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int select = fctb.Selection.Start.iLine;
+            RegexOptions options = RegexOptions.None;
+            Regex regex = new Regex(@"[ ]{2,}", options);
+            fctb.Text = regex.Replace(fctb.Text, @" ");
+            regex = new Regex(@"\s\r*\n", options);
+            fctb.Text = regex.Replace(fctb.Text, "\n");
+            fctb.SelectAll();
+            fctb.DoAutoIndent();
             for (int iLine = 0; iLine < fctb.LinesCount; iLine++)
-            {
-                fctb.DoAutoIndent(iLine);
                 fctb.DoAutoIndentChars(iLine);
-            }
+            fctb.Navigate(select);
         }
 
         private void framesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -593,7 +599,7 @@ namespace VDC
             else
                 fs.Focus();
         }
-
+        
     }
 
     public class global

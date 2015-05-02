@@ -77,7 +77,7 @@
             this.label1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.label1.Size = new System.Drawing.Size(250, 55);
             this.label1.TabIndex = 3;
-            this.label1.Text = "VDC v1.3";
+            this.label1.Text = "VDC v1.4";
             // 
             // FormAbout
             // 
