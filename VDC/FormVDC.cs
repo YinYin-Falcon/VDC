@@ -241,10 +241,9 @@ namespace VDC
         private void formatToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int select = fctb.Selection.Start.iLine;
-            RegexOptions options = RegexOptions.None;
-            Regex regex = new Regex(@"[ ]{2,}", options);
+            Regex regex = new Regex(@"[ ]{2,}", RegexOptions.None);
             fctb.Text = regex.Replace(fctb.Text, @" ");
-            regex = new Regex(@"\s\r*\n", options);
+            regex = new Regex(@"\s\r*\n", RegexOptions.None);
             fctb.Text = regex.Replace(fctb.Text, "\n");
             fctb.SelectAll();
             fctb.DoAutoIndent();
@@ -599,7 +598,31 @@ namespace VDC
             else
                 fs.Focus();
         }
-        
+
+        private void gotoFrameToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
+            ShowGoToDialog();
+        }
+
+        public void ShowGoToDialog()
+        {
+            var form = new GoToForm();
+            form.TotalLineCount = fctb.LinesCount;
+            form.SelectedLineNumber = fctb.Selection.Start.iLine + 1;
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                int frame = form.SelectedLineNumber;
+                int line = form.SelectedLineNumber;
+                if (fctb.FindLines(@"<frame> " + line, RegexOptions.None).Count > 0)
+                {
+                    line = fctb.FindLines(@"<frame> " + line, RegexOptions.None)[0];
+                    fctb.Selection = new Range(fctb, 0, line, 0, line);
+                    fctb.DoSelectionVisible();
+                }
+            }
+        }
+
     }
 
     public class global

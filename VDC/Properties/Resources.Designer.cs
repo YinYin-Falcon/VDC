@@ -63,6 +63,16 @@ namespace VDC.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _goto {
+            get {
+                object obj = ResourceManager.GetObject("goto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bdy {
             get {
                 object obj = ResourceManager.GetObject("bdy", resourceCulture);
