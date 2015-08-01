@@ -236,7 +236,7 @@
             // 
             // gotoFrameToolStripMenuItem
             // 
-            this.gotoFrameToolStripMenuItem.Image = global::VDC.Properties.Resources._goto;
+            this.gotoFrameToolStripMenuItem.Image = global::VDC.Properties.Resources.go_to;
             this.gotoFrameToolStripMenuItem.Name = "gotoFrameToolStripMenuItem";
             this.gotoFrameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
             this.gotoFrameToolStripMenuItem.Size = new System.Drawing.Size(178, 22);

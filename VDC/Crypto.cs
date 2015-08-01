@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace VDC
@@ -42,20 +39,20 @@ namespace VDC
     {
         public static string Main(String FileName)
         {
-            string text = "";
+            StringBuilder sb = new StringBuilder();
             FileStream finp = new FileStream(FileName, FileMode.Open);
             int counta = 0;
             int b;
             finp.Seek(123, SeekOrigin.Begin);
             while ((b = finp.ReadByte()) != -1)
             {
-                text += (char)DecryptByte(counta, (byte)b);
+                sb.Append((char)DecryptByte(counta, (byte)b));
                 counta++;
                 if (counta > 36)
                     counta = 0;
             }
             finp.Close();
-            return text;
+            return sb.ToString();
         }
 
         public static byte DecryptByte(int counta, byte b)
